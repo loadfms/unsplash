@@ -20,4 +20,5 @@ func main() {
 		fmt.Println("There was an error!")
 		return
 	}
+	fmt.Println("Wallpaper unsplashed and refreshed ;)")
 }
