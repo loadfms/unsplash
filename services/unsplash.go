@@ -27,7 +27,6 @@ func Run(configs *models.Configs) (err error) {
 	}
 
 	err = setNewWallpaper(configs)
-
 	return err
 }
 
@@ -58,10 +57,11 @@ func getPicureUrl(configs *models.Configs) (unsplash models.UnsplashResponse, er
 	randomPage := getRandomNumber(1, 999)
 	url := fmt.Sprintf("https://api.unsplash.com/search/photos/?query=%s&client_id=%s&page=%d", configs.Config.UnsplashQuery, configs.Config.UnsplashAPIClientID, randomPage)
 	resp, err := http.Get(url)
-
 	if err != nil {
+		fmt.Printf("error while searching for your file.\nTry changing you unsplash query.")
 		return unsplashResponse, err
 	}
+
 	defer resp.Body.Close()
 
 	body, err := ioutil.ReadAll(resp.Body)

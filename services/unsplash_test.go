@@ -4,8 +4,9 @@ import (
 	"testing"
 )
 
+// TODO: Fix Tests.
 func TestGetPictureUrl(t *testing.T) {
-	unsplashResponse, err := getPicureUrl()
+	unsplashResponse, err := getPictureUrl()
 
 	if len(unsplashResponse.Results) == 0 || err != nil {
 		t.Errorf("Error getting url from image")
